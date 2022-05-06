@@ -57,3 +57,6 @@ dist/
 
 # DotEnv
 .env
+
+app.config.js
+
