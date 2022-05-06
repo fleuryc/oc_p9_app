@@ -9,8 +9,7 @@ import {
   FlatList,
 } from "react-native";
 import axios from "axios";
-
-const RECOMMENDER_API_URL = process.env.REACT_APP_RECOMMENDER_API_URL;
+import Constants from "expo-constants";
 
 class App extends Component {
   state = {
@@ -19,11 +18,25 @@ class App extends Component {
   };
 
   getRecommendations = async () => {
-    // const { data: recommendations } = await axios.post(RECOMMENDER_API_URL, {
-    //   userId: this.state.userID,
-    // });
-    const recommendations = [34, 32, 893, 1];
-    this.setState({ recommendations });
+    try {
+      console.log("Getting recommendations...");
+      const {
+        data: { id: userID, articles: recommendations },
+      } = await axios.get(
+        Constants.manifest.extra.recommenderApiUrl +
+          this.state.userID.toString(),
+        {
+          params: {
+            code: Constants.manifest.extra.recommenderApiCode,
+          },
+        }
+      );
+      this.setState({ recommendations });
+    } catch (error) {
+      console.log(error);
+      const recommendations = [];
+      this.setState({ recommendations });
+    }
   };
 
   reset = async () => {
@@ -38,13 +51,17 @@ class App extends Component {
         {this.state.recommendations ? (
           <View>
             <Text style={styles.text}>Recommendations</Text>
-            <FlatList
-              style={styles.list}
-              data={this.state.recommendations.map((key) => ({
-                key: key.toString(),
-              }))}
-              renderItem={({ item }) => <Text>Article #{item.key}</Text>}
-            />
+            {this.state.recommendations.length > 0 ? (
+              <FlatList
+                style={styles.list}
+                data={this.state.recommendations.map((key) => ({
+                  key: key.toString(),
+                }))}
+                renderItem={({ item }) => <Text>Article #{item.key}</Text>}
+              />
+            ) : (
+              <Text style={styles.error}>No recommendations</Text>
+            )}
             <Button title="Reset" onPress={this.reset} />
           </View>
         ) : (
@@ -78,6 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: { fontSize: 36, margin: 20 },
+  error: { color: "red", margin: 20 },
   input: {
     margin: 20,
     borderWidth: 1,
