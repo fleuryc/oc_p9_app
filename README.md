@@ -31,7 +31,6 @@ The app will query a [Azure Function](https://azure.microsoft.com/en-us/services
 
 - [Quickstart: Create a function in Azure with Python using Visual Studio Code](https://docs.microsoft.com/fr-fr/azure/azure-functions/create-first-function-vs-code-python "Quickstart: Create a function in Azure with Python using Visual Studio Code")
 
-
 ### Environment variables
 
 - Set environment variable values in [app.config.js](app.config.js) file (copy or rename [app.config.example.js](app.config.example.js)).
