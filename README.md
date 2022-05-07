@@ -38,7 +38,6 @@ The app will query a [Azure Function](https://azure.microsoft.com/en-us/services
 
 ## Usage
 
-
 ### Run the App
 
 ```bash
