@@ -30,7 +30,7 @@ yarn install
 The app will query a [Azure Function](https://azure.microsoft.com/en-us/services/functions/ "Azure Functions") that will return a list of relevant articles.
 
 - [Quickstart: Create a function in Azure with Python using Visual Studio Code](https://docs.microsoft.com/fr-fr/azure/azure-functions/create-first-function-vs-code-python "Quickstart: Create a function in Azure with Python using Visual Studio Code")
-- ...
+
 
 ### Environment variables
 
