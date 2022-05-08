@@ -16,6 +16,10 @@ Create a mobile app that will recommend relevant articles from globo.com to the 
 
 - [Yarn](https://yarnpkg.com/lang/en/docs/install "Yarn")
 - [React Native](https://reactnative.dev/ "React Native")
+- Run environment :
+  - [Expo Go app](https://docs.expo.dev/get-started/installation/#2-expo-go-app-for-ios-and= "Expo Go app")
+  - or [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/ "iOS Simulator")
+  - or [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/ "Android Studio Emulator")
 
 ### Dependencies
 
